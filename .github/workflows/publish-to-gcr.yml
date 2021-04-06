@@ -9,5 +9,5 @@ jobs:
         with:
           gcloud_service_key: ${{ secrets.GCP_KEY }}
           registry: gcr.io
-          project_id: emp-inventorycontrol
+          project_id: letsgomarket-8217a
           image_name: helloworld
