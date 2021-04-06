@@ -14,5 +14,5 @@ jobs:
         with:
           username: madushanka.fonseka
           password: letsgomarket_345
-          repository: my-docker-hub-namespace/my-docker-hub-repository
+          repository: maf888/gitops-hello-world
           tag_with_ref: true
