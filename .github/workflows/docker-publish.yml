@@ -1,18 +1,27 @@
-name: Publish Docker image
+name: Docker Image CI
+
 on:
-  release:
-    types: [published]
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
 jobs:
-  push_to_registry:
-    name: Push Docker image to Docker Hub
+
+  build:
+
     runs-on: ubuntu-latest
+
     steps:
-      - name: Check out the repo
-        uses: actions/checkout@v2
-      - name: Push to Docker Hub
-        uses: docker/build-push-action@v1
-        with:
-          username: madushanka.fonseka
-          password: letsgomarket_345
-          repository: maf888/gitops-hello-world
-          tag_with_ref: true
+    - uses: actions/checkout@v2
+    - name: docker login
+      env:
+        DOCKER_USER: madushanka.fonseka
+        DOCKER_PASSWORD: letsgomarket_345
+      run: |
+        docker login -u $DOCKER_USER -p $DOCKER_PASSWORD 
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag chamodshehanka/node-test:$(date +%s)
+      
+    - name: Docker Push
+      run: docker push chamodshehanka/node-test
