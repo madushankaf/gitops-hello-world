@@ -11,4 +11,4 @@ jobs:
           registry: gcr.io
           project_id: letsgomarket-8217a
           image_name: helloworld
-          image_tag: 0.1
+          image_tag: 0.2
