@@ -21,7 +21,7 @@ jobs:
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD 
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag maf888/gitops-hello-world:latest --tag maf888/gitops-hello-world:0.2
+      run: docker build . --file Dockerfile --tag maf888/helloworld:latest --tag maf888/helloworld:0.1
       
     - name: Docker Push
-      run: docker push maf888/gitops-hello-world:0.2
+      run: docker push maf888/helloworld:0.1
